@@ -29,6 +29,7 @@
     :root{
       --bg:#f8fafc; --card:#ffffff; --muted:#64748b; --text:#0f172a; --brand:#059669; --accent:#10b981;
       --max: 1080px; --radius: 18px; --shadow: 0 8px 30px rgba(0,0,0,.08);
+      --spacing-xs: 8px; --spacing-sm: 12px; --spacing-md: 18px; --spacing-lg: 24px; --spacing-xl: 32px;
     }
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;background:linear-gradient(180deg,#f8fafc 0%, #e2e8f0 100%);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
@@ -43,34 +44,43 @@
     .btn{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(0,0,0,.1);padding:10px 14px;border-radius:999px;background:rgba(255,255,255,.8)}
     .btn:hover{background:rgba(5,150,105,.1);border-color:var(--brand)}
     .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;padding:56px 0}
-    .card{background:var(--card);border:1px solid rgba(0,0,0,.08);border-radius:var(--radius);box-shadow:var(--shadow)}
-    .p24{padding:24px}
+    .card{background:var(--card);border:1px solid rgba(0,0,0,.08);border-radius:var(--radius);box-shadow:var(--shadow);transition:all 0.3s ease}
+    .card:hover{box-shadow:0 12px 40px rgba(0,0,0,.12);transform:translateY(-2px)}
+    .p24{padding:var(--spacing-lg)}
     .muted{color:var(--muted)}
-    h1{font-size:40px;line-height:1.2;margin:0 0 10px}
-    h2{font-size:26px;margin:0 0 12px}
-    h3{font-size:20px;margin:18px 0 8px}
-    ul{margin:8px 0 0 18px}
-    .tag{display:inline-flex;align-items:center;padding:6px 10px;border-radius:999px;background:rgba(5,150,105,.1);border:1px solid rgba(5,150,105,.3);margin:6px 6px 0 0;font-size:13px;color:var(--brand)}
-    .grid{display:grid;gap:18px}
+    h1{font-size:42px;line-height:1.1;margin:0 0 var(--spacing-sm);font-weight:700}
+    h2{font-size:28px;margin:0 0 var(--spacing-sm);font-weight:600}
+    h3{font-size:20px;margin:var(--spacing-md) 0 var(--spacing-xs);font-weight:600}
+    ul{margin:var(--spacing-xs) 0 0 var(--spacing-md);line-height:1.6}
+    p{line-height:1.7;margin:0 0 var(--spacing-sm)}
+    .tag{display:inline-flex;align-items:center;padding:8px 12px;border-radius:999px;background:rgba(5,150,105,.1);border:1px solid rgba(5,150,105,.3);margin:4px 4px 0 0;font-size:14px;color:var(--brand);transition:all 0.2s ease}
+    .tag:hover{background:rgba(5,150,105,.15);transform:translateY(-1px)}
+    .grid{display:grid;gap:var(--spacing-md)}
     .grid.cols-2{grid-template-columns:repeat(2,1fr)}
     .grid.cols-3{grid-template-columns:repeat(3,1fr)}
-    .pub{padding:16px;border-radius:14px;border:1px dashed rgba(5,150,105,.25);background:rgba(5,150,105,.03)}
+    .grid.cols-4{grid-template-columns:repeat(4,1fr)}
+    .pub{padding:var(--spacing-md);border-radius:14px;border:1px dashed rgba(5,150,105,.25);background:rgba(5,150,105,.03);transition:all 0.2s ease}
+    .pub:hover{border-color:rgba(5,150,105,.4);background:rgba(5,150,105,.05)}
     .kvs{display:flex;flex-wrap:wrap;gap:10px}
     .footer{padding:32px 0;color:var(--muted);font-size:14px}
     .avatar{width:120px;height:120px;border-radius:50%;object-fit:cover;border:3px solid var(--brand);box-shadow:var(--shadow)}
     .pill{display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border-radius:999px;background:rgba(5,150,105,.1);border:1px solid rgba(5,150,105,.3);font-size:14px;color:var(--brand)}
     .section{margin:24px 0}
     .nowrap{white-space:nowrap}
-    .kv{display:grid;grid-template-columns:200px 1fr;gap:12px;align-items:center}
-    .kv > div:first-child{font-weight:500}
-    .kv > div:last-child{text-align:right;font-weight:600;color:var(--brand)}
+    .kv{display:grid;grid-template-columns:200px 1fr;gap:var(--spacing-sm);align-items:center;padding:var(--spacing-xs) 0}
+    .kv > div:first-child{font-weight:500;color:var(--text)}
+    .kv > div:last-child{text-align:right;font-weight:600;color:var(--brand);font-size:18px}
     .mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
     @media (max-width: 900px){
-      .hero{grid-template-columns:1fr}
-      nav .links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--card);flex-direction:column;padding:16px;border-top:1px solid rgba(0,0,0,.06);box-shadow:var(--shadow)}
+      .hero{grid-template-columns:1fr;gap:var(--spacing-lg)}
+      nav .links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--card);flex-direction:column;padding:var(--spacing-md);border-top:1px solid rgba(0,0,0,.06);box-shadow:var(--shadow)}
       .mobile-menu{display:block}
-      .kv{grid-template-columns:1fr;gap:8px}
+      .grid.cols-3{grid-template-columns:1fr}
+      .grid.cols-2{grid-template-columns:1fr}
+      .kv{grid-template-columns:1fr;gap:var(--spacing-xs)}
       .kv > div:last-child{text-align:left}
+      h1{font-size:32px}
+      h2{font-size:24px}
     }
   </style>
 </head>
@@ -288,7 +298,11 @@
     <!-- 联系方式 -->
     <section id="contact" class="section card p24">
       <h2>联系</h2>
-      <p>邮箱：<a href="mailto:kirinlv03@gmail.com">kirinlv03@gmail.com</a> · 学校：重庆交通大学 · <a href="/cv.pdf" target="_blank" rel="noopener">下载简历（PDF）</a></p>
+      <div style="display:flex;flex-wrap:wrap;gap:var(--spacing-sm);align-items:center;margin-bottom:var(--spacing-sm)">
+        <span>📧 <a href="mailto:kirinlv03@gmail.com">kirinlv03@gmail.com</a></span>
+        <span>🏫 重庆交通大学</span>
+        <span>📄 <a href="/cv.pdf" target="_blank" rel="noopener">下载简历（PDF）</a></span>
+      </div>
       <p class="muted">欢迎对具身智能、视频语言模型与机器人感知相关的实习/联合培养/科研合作联系我。</p>
     </section>
 
