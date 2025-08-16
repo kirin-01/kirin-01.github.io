@@ -45,7 +45,17 @@
     .mobile-menu .bar{width:20px;height:2px;background:var(--text);margin:4px 0;transition:.3s}
     .btn{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(0,0,0,.1);padding:10px 14px;border-radius:999px;background:rgba(255,255,255,.8)}
     .btn:hover{background:rgba(5,150,105,.1);border-color:var(--brand)}
-    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;padding:56px 0}
+
+    /* 关键修改：等高布局 */
+    .hero{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:28px;
+      align-items:stretch;      /* 等高 */
+      padding:56px 0;
+    }
+    .hero > .card{height:100%;}
+
     .card{background:var(--card);border:1px solid rgba(0,0,0,.08);border-radius:var(--radius);box-shadow:var(--shadow);transition:.3s}
     .card:hover{box-shadow:0 12px 40px rgba(0,0,0,.12);transform:translateY(-2px)}
     .p24{padding:var(--spacing-lg)}
@@ -67,6 +77,7 @@
     .pill{display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border-radius:999px;background:rgba(5,150,105,.1);border:1px solid rgba(5,150,105,.3);font-size:14px;color:var(--brand)}
     .section{margin:24px 0}
     .nowrap{white-space:nowrap}
+
     @media (max-width:900px){
       .hero{grid-template-columns:1fr;gap:var(--spacing-lg)}
       nav .links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--card);flex-direction:column;padding:var(--spacing-md);border-top:1px solid rgba(0,0,0,.06);box-shadow:var(--shadow)}
@@ -84,19 +95,19 @@
           <span class="pill">🎓 吕沁函</span>
           <span class="muted nowrap">本科生 · HCP实验室科研助理</span>
         </div>
-        <div class="links">
+        <div class="links" id="site-links">
           <a class="btn" href="#about">关于我</a>
           <a class="btn" href="#highlights">亮点</a>
           <a class="btn" href="#research">研究方向</a>
           <a class="btn" href="#pubs">论文</a>
           <a class="btn" href="#projects">项目</a>
           <a class="btn" href="#awards">竞赛</a>
-           <a class="btn" href="#clustrmaps">访客地图</a>
-           <a class="btn" href="#contact">联系</a>
+          <a class="btn" href="#clustrmaps">访客地图</a>
+          <a class="btn" href="#contact">联系</a>
         </div>
-        <div class="mobile-menu" onclick="toggleMenu()">
+        <button class="mobile-menu" aria-controls="site-links" aria-expanded="false" onclick="toggleMenu()" aria-label="切换导航菜单">
           <div class="bar"></div><div class="bar"></div><div class="bar"></div>
-        </div>
+        </button>
       </nav>
     </div>
   </header>
@@ -109,14 +120,18 @@
         <p class="muted">重庆交通大学人工智能专业本科生，研究助理于 <b>中山大学 HCP 实验室</b>（2025.6–）。研究兴趣聚焦 <b>具身智能</b>、<b>视频/视觉语言模型</b> 与 <b>机器人感知</b>。累计获得 <b>国家级/省部级竞赛奖项 20+ 项</b>，GPA <b>4.12/5.0</b>，<b>专业第2/65</b>。</p>
         <div class="kvs" style="margin-top:10px">
           <a class="tag" href="mailto:kirinlv03@gmail.com">📧 kirinlv03@gmail.com</a>
-          <a class="tag" href="https://github.com/kirin-01" target="_blank" rel="noopener">💻 GitHub</a>
-          <a class="tag" href="https://scholar.google.com/citations?user=YOUR_SCHOLAR_ID" target="_blank" rel="noopener">🔎 Google Scholar</a>
-          <a class="tag" href="https://orcid.org/YOUR_ORCID_ID" target="_blank" rel="noopener">🧬 ORCID</a>
+          <a class="tag" href="https://github.com/kirin-01" target="_blank" rel="noopener noreferrer">💻 GitHub</a>
+          <a class="tag" href="https://scholar.google.com/citations?user=YOUR_SCHOLAR_ID" target="_blank" rel="noopener noreferrer">🔎 Google Scholar</a>
+          <a class="tag" href="https://orcid.org/YOUR_ORCID_ID" target="_blank" rel="noopener noreferrer">🧬 ORCID</a>
         </div>
       </div>
-      <div class="card p24" style="display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:var(--spacing-lg)">
-        <img class="avatar" src="./assets/avatar.jpg" alt="吕沁函的头像" />
-        <div class="muted" style="text-align:center;margin-top:var(--spacing-sm)">吕沁函的头像</div>
+
+      <!-- 右侧头像卡片：等高 + 居中 -->
+      <div class="card p24" style="display:grid;place-items:center">
+        <div style="text-align:center">
+          <img class="avatar" src="./assets/avatar.jpg" alt="吕沁函的头像" loading="lazy" width="120" height="120" />
+          <div class="muted" style="margin-top:8px">吕沁函的头像</div>
+        </div>
       </div>
     </section>
 
@@ -147,7 +162,6 @@
         <div>
           <h3>教育背景</h3>
           <ul><li>学士 · 人工智能 · 重庆交通大学（2022–2026）</li></ul>
-
         </div>
         <div>
           <h3>经历（近两年）</h3>
@@ -206,7 +220,6 @@
     <!-- 竞赛/奖项 -->
     <section id="awards" class="section card p24">
       <h2>竞赛与荣誉（完整）</h2>
-    
       <h3>国家级</h3>
       <ul>
         <li>2024 交通运输科技大赛 · 全国一等奖</li>
@@ -215,7 +228,6 @@
         <li>2024 数字媒体科技作品大赛 · 全国三等奖</li>
         <li>数学建模（美赛） · S 奖</li>
       </ul>
-    
       <h3>省部级 / 赛区</h3>
       <ul>
         <li>“大唐杯”信息通信大赛（2024）· 重庆市一等奖</li>
@@ -225,10 +237,8 @@
         <li>川渝数智大赛（2024）· 二等奖</li>
         <li>交科赛（西部）· 省级一等奖</li>
         <li>蓝桥杯（2024）· 省级三等奖</li>
-
         <li>大学生创新大赛 · 省级金奖</li>
       </ul>
-    
       <p class="muted">注：更多奖项请看简历。</p>
     </section>
 
@@ -244,15 +254,11 @@
       </ul>
     </section>
 
-
-
     <!-- 访客地图（ClustrMaps） -->
     <section id="clustrmaps" class="section card p24">
       <h2>访客地图</h2>
       <div id="clustrmaps-widget" style="min-height:360px">
-        <script type="text/javascript" id="clustrmaps"
-          src="//clustrmaps.com/map_v2.js?d=QJcyYwrezNzoKX9jznpVhrAYKghpKUT0d02NxXE03gA&cl=ffffff&w=a">
-        </script>
+        <script id="clustrmaps" src="https://clustrmaps.com/map_v2.js?d=QJcyYwrezNzoKX9jznpVhrAYKghpKUT0d02NxXE03gA&cl=ffffff&w=a" defer></script>
       </div>
       <div class="muted" style="font-size:13px;margin-top:8px">由 ClustrMaps 提供统计，仅展示国家/地区级别数据。</div>
     </section>
@@ -263,7 +269,7 @@
       <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:12px">
         <span>📧 <a href="mailto:kirinlv03@gmail.com">kirinlv03@gmail.com</a></span>
         <span>🏫 重庆交通大学</span>
-        <span>📄 <a href="/cv.pdf" target="_blank" rel="noopener">下载简历（PDF）</a></span>
+        <span>📄 <a href="/cv.pdf" target="_blank" rel="noopener noreferrer">下载简历（PDF）</a></span>
       </div>
       <p class="muted">欢迎对具身智能、视频语言模型与机器人感知相关的实习/联合培养/科研合作联系我。</p>
     </section>
@@ -274,22 +280,37 @@
   </footer>
 
   <script>
-    // 平滑滚动 & 页脚年份
+    // 平滑滚动
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
       a.addEventListener('click',e=>{
         const t=document.querySelector(a.getAttribute('href'));
         if(t){e.preventDefault(); t.scrollIntoView({behavior:'smooth'});}
       });
     });
+    // 年份 & 最后更新时间（优先使用文档修改时间）
     document.getElementById('y').textContent = new Date().getFullYear();
-    document.getElementById('lastmod').textContent = new Date().toISOString().slice(0,10);
+    const lm = document.lastModified ? new Date(document.lastModified) : new Date();
+    document.getElementById('lastmod').textContent = lm.toISOString().slice(0,10);
 
-    // 移动端菜单切换
+    // 移动端菜单切换（无障碍）
     function toggleMenu(){
-      const links=document.querySelector('.links');
-      const display=window.getComputedStyle(links).display;
-      links.style.display = display==='none' ? 'flex' : 'none';
+      const links = document.getElementById('site-links');
+      const btn = document.querySelector('.mobile-menu');
+      const willShow = getComputedStyle(links).display === 'none';
+      links.style.display = willShow ? 'flex' : 'none';
+      btn.setAttribute('aria-expanded', willShow ? 'true' : 'false');
     }
+    // Esc 关闭菜单
+    document.addEventListener('keydown',(e)=>{
+      if(e.key==='Escape'){
+        const links = document.getElementById('site-links');
+        const btn = document.querySelector('.mobile-menu');
+        if(getComputedStyle(links).display!=='none'){
+          links.style.display='none';
+          btn.setAttribute('aria-expanded','false');
+        }
+      }
+    });
   </script>
 </body>
 </html>
