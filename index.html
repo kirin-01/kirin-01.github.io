@@ -19,7 +19,9 @@
     "alumniOf": {"@type":"CollegeOrUniversity","name":"重庆交通大学"},
     "knowsAbout": ["具身智能","视频语言模型","机器人感知","深度学习","强化学习"],
     "sameAs": [
-      "https://github.com/kirin-01"
+      "https://github.com/kirin-01",
+      "https://scholar.google.com/citations?user=YOUR_SCHOLAR_ID",
+      "https://orcid.org/YOUR_ORCID_ID"
     ]
   }
   </script>
@@ -36,6 +38,8 @@
     header{position:sticky;top:0;backdrop-filter:saturate(180%) blur(10px);background:rgba(248,250,252,.9);z-index:50;border-bottom:1px solid rgba(0,0,0,.06)}
     nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
     nav .links{display:flex;gap:14px;flex-wrap:wrap}
+    .mobile-menu{display:none;cursor:pointer;padding:8px}
+    .mobile-menu .bar{width:20px;height:2px;background:var(--text);margin:4px 0;transition:0.3s}
     .btn{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(0,0,0,.1);padding:10px 14px;border-radius:999px;background:rgba(255,255,255,.8)}
     .btn:hover{background:rgba(5,150,105,.1);border-color:var(--brand)}
     .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;padding:56px 0}
@@ -57,12 +61,16 @@
     .pill{display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border-radius:999px;background:rgba(5,150,105,.1);border:1px solid rgba(5,150,105,.3);font-size:14px;color:var(--brand)}
     .section{margin:24px 0}
     .nowrap{white-space:nowrap}
-    .kv{display:grid;grid-template-columns:120px 1fr;gap:8px}
+    .kv{display:grid;grid-template-columns:200px 1fr;gap:12px;align-items:center}
+    .kv > div:first-child{font-weight:500}
+    .kv > div:last-child{text-align:right;font-weight:600;color:var(--brand)}
     .mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
     @media (max-width: 900px){
       .hero{grid-template-columns:1fr}
-      nav .links{display:none}
-      .kv{grid-template-columns:1fr}
+      nav .links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--card);flex-direction:column;padding:16px;border-top:1px solid rgba(0,0,0,.06);box-shadow:var(--shadow)}
+      .mobile-menu{display:block}
+      .kv{grid-template-columns:1fr;gap:8px}
+      .kv > div:last-child{text-align:left}
     }
   </style>
 </head>
@@ -84,6 +92,11 @@
           <a class="btn" href="#news">动态</a>
           <a class="btn" href="#contact">联系</a>
         </div>
+        <div class="mobile-menu" onclick="toggleMenu()">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
       </nav>
     </div>
   </header>
@@ -98,6 +111,8 @@
           <a class="tag" href="mailto:qinhan@mails.cqjtu.edu.cn">📧 qinhan@mails.cqjtu.edu.cn</a>
           <a class="tag" href="tel:+8615310402166">📱 153-1040-2166</a>
           <a class="tag" href="https://github.com/kirin-01" target="_blank" rel="noopener">💻 GitHub</a>
+          <a class="tag" href="https://scholar.google.com/citations?user=YOUR_SCHOLAR_ID" target="_blank" rel="noopener">🔎 Google Scholar</a>
+          <a class="tag" href="https://orcid.org/YOUR_ORCID_ID" target="_blank" rel="noopener">🧬 ORCID</a>
           <a class="tag" href="#clustrmaps">🌍 访客地图</a>
         </div>
       </div>
@@ -263,10 +278,10 @@
     <section class="section card p24">
       <h2>课程与成绩（节选）</h2>
       <div class="kv">
-        <div class="muted">机器学习</div><div>98</div>
-        <div class="muted">深度学习</div><div>96</div>
-        <div class="muted">计算机视觉</div><div>95</div>
-        <div class="muted">最优化理论与方法</div><div>93</div>
+        <div>机器学习</div><div>98</div>
+        <div>深度学习</div><div>96</div>
+        <div>计算机视觉</div><div>95</div>
+        <div>最优化理论与方法</div><div>93</div>
       </div>
     </section>
 
@@ -298,6 +313,14 @@
     });
     document.getElementById('y').textContent = new Date().getFullYear();
     document.getElementById('lastmod').textContent = new Date().toISOString().slice(0,10);
+    
+    // 移动端菜单切换
+    function toggleMenu() {
+      const links = document.querySelector('.links');
+      const mobileMenu = document.querySelector('.mobile-menu');
+      links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
+      mobileMenu.classList.toggle('active');
+    }
   </script>
 </body>
 </html>
