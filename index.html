@@ -6,6 +6,7 @@
   <title>吕沁函 | 个人主页</title>
   <meta name="description" content="重庆交通大学人工智能本科生 · 中山大学HCP实验室科研助理。研究方向：具身智能、视频语言模型、机器人感知。包含简介、论文、项目、竞赛与联系信息。" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🎓</text></svg>">
+
   <!-- 结构化数据：便于学术搜索展示 -->
   <script type="application/ld+json">
   {
@@ -25,11 +26,12 @@
     ]
   }
   </script>
+
   <style>
     :root{
       --bg:#f8fafc; --card:#ffffff; --muted:#64748b; --text:#0f172a; --brand:#059669; --accent:#10b981;
-      --max: 1080px; --radius: 18px; --shadow: 0 8px 30px rgba(0,0,0,.08);
-      --spacing-xs: 8px; --spacing-sm: 12px; --spacing-md: 18px; --spacing-lg: 24px; --spacing-xl: 32px;
+      --max:1080px; --radius:18px; --shadow:0 8px 30px rgba(0,0,0,.08);
+      --spacing-xs:8px; --spacing-sm:12px; --spacing-md:18px; --spacing-lg:24px; --spacing-xl:32px;
     }
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;background:linear-gradient(180deg,#f8fafc 0%, #e2e8f0 100%);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
@@ -40,11 +42,11 @@
     nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
     nav .links{display:flex;gap:14px;flex-wrap:wrap}
     .mobile-menu{display:none;cursor:pointer;padding:8px}
-    .mobile-menu .bar{width:20px;height:2px;background:var(--text);margin:4px 0;transition:0.3s}
+    .mobile-menu .bar{width:20px;height:2px;background:var(--text);margin:4px 0;transition:.3s}
     .btn{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(0,0,0,.1);padding:10px 14px;border-radius:999px;background:rgba(255,255,255,.8)}
     .btn:hover{background:rgba(5,150,105,.1);border-color:var(--brand)}
     .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;padding:56px 0}
-    .card{background:var(--card);border:1px solid rgba(0,0,0,.08);border-radius:var(--radius);box-shadow:var(--shadow);transition:all 0.3s ease}
+    .card{background:var(--card);border:1px solid rgba(0,0,0,.08);border-radius:var(--radius);box-shadow:var(--shadow);transition:.3s}
     .card:hover{box-shadow:0 12px 40px rgba(0,0,0,.12);transform:translateY(-2px)}
     .p24{padding:var(--spacing-lg)}
     .muted{color:var(--muted)}
@@ -53,34 +55,24 @@
     h3{font-size:20px;margin:var(--spacing-md) 0 var(--spacing-xs);font-weight:600}
     ul{margin:var(--spacing-xs) 0 0 var(--spacing-md);line-height:1.6}
     p{line-height:1.7;margin:0 0 var(--spacing-sm)}
-    .tag{display:inline-flex;align-items:center;padding:8px 12px;border-radius:999px;background:rgba(5,150,105,.1);border:1px solid rgba(5,150,105,.3);margin:4px 4px 0 0;font-size:14px;color:var(--brand);transition:all 0.2s ease}
+    .tag{display:inline-flex;align-items:center;padding:8px 12px;border-radius:999px;background:rgba(5,150,105,.1);border:1px solid rgba(5,150,105,.3);margin:4px 4px 0 0;font-size:14px;color:var(--brand);transition:.2s}
     .tag:hover{background:rgba(5,150,105,.15);transform:translateY(-1px)}
     .grid{display:grid;gap:var(--spacing-md)}
     .grid.cols-2{grid-template-columns:repeat(2,1fr)}
     .grid.cols-3{grid-template-columns:repeat(3,1fr)}
-    .grid.cols-4{grid-template-columns:repeat(4,1fr)}
-    .pub{padding:var(--spacing-md);border-radius:14px;border:1px dashed rgba(5,150,105,.25);background:rgba(5,150,105,.03);transition:all 0.2s ease}
-    .pub:hover{border-color:rgba(5,150,105,.4);background:rgba(5,150,105,.05)}
+    .pub{padding:var(--spacing-md);border-radius:14px;border:1px dashed rgba(5,150,105,.25);background:rgba(5,150,105,.03)}
     .kvs{display:flex;flex-wrap:wrap;gap:10px}
     .footer{padding:32px 0;color:var(--muted);font-size:14px}
     .avatar{width:120px;height:120px;border-radius:50%;object-fit:cover;border:3px solid var(--brand);box-shadow:var(--shadow)}
     .pill{display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border-radius:999px;background:rgba(5,150,105,.1);border:1px solid rgba(5,150,105,.3);font-size:14px;color:var(--brand)}
     .section{margin:24px 0}
     .nowrap{white-space:nowrap}
-    .kv{display:grid;grid-template-columns:200px 1fr;gap:var(--spacing-sm);align-items:center;padding:var(--spacing-xs) 0}
-    .kv > div:first-child{font-weight:500;color:var(--text)}
-    .kv > div:last-child{text-align:right;font-weight:600;color:var(--brand);font-size:18px}
-    .mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
-    @media (max-width: 900px){
+    @media (max-width:900px){
       .hero{grid-template-columns:1fr;gap:var(--spacing-lg)}
       nav .links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--card);flex-direction:column;padding:var(--spacing-md);border-top:1px solid rgba(0,0,0,.06);box-shadow:var(--shadow)}
       .mobile-menu{display:block}
-      .grid.cols-3{grid-template-columns:1fr}
-      .grid.cols-2{grid-template-columns:1fr}
-      .kv{grid-template-columns:1fr;gap:var(--spacing-xs)}
-      .kv > div:last-child{text-align:left}
-      h1{font-size:32px}
-      h2{font-size:24px}
+      .grid.cols-3,.grid.cols-2{grid-template-columns:1fr}
+      h1{font-size:32px} h2{font-size:24px}
     }
   </style>
 </head>
@@ -90,7 +82,7 @@
       <nav>
         <div style="display:flex;align-items:center;gap:12px">
           <span class="pill">🎓 吕沁函</span>
-                     <span class="muted nowrap">本科生 · HCP实验室科研助理</span>
+          <span class="muted nowrap">本科生 · HCP实验室科研助理</span>
         </div>
         <div class="links">
           <a class="btn" href="#about">关于我</a>
@@ -100,12 +92,11 @@
           <a class="btn" href="#projects">项目</a>
           <a class="btn" href="#awards">竞赛/奖项</a>
           <a class="btn" href="#news">动态</a>
+          <a class="btn" href="#clustrmaps">访客地图</a>
           <a class="btn" href="#contact">联系</a>
         </div>
         <div class="mobile-menu" onclick="toggleMenu()">
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
+          <div class="bar"></div><div class="bar"></div><div class="bar"></div>
         </div>
       </nav>
     </div>
@@ -123,7 +114,6 @@
           <a class="tag" href="https://github.com/kirin-01" target="_blank" rel="noopener">💻 GitHub</a>
           <a class="tag" href="https://scholar.google.com/citations?user=YOUR_SCHOLAR_ID" target="_blank" rel="noopener">🔎 Google Scholar</a>
           <a class="tag" href="https://orcid.org/YOUR_ORCID_ID" target="_blank" rel="noopener">🧬 ORCID</a>
-          <a class="tag" href="#clustrmaps">🌍 访客地图</a>
         </div>
       </div>
       <div class="card p24" style="display:flex;flex-direction:column;gap:14px;align-items:center;justify-content:center">
@@ -132,31 +122,21 @@
       </div>
     </section>
 
-    <!-- 亮点 Highlights -->
+    <!-- 亮点 -->
     <section id="highlights" class="section card p24">
       <h2>个人亮点</h2>
       <div class="grid cols-3">
         <div class="pub">
           <h3>学业表现</h3>
-          <ul>
-            <li>GPA 4.12/5.0，专业第2/65</li>
-            <li>核心课程：机器学习(98)、深度学习(96)、计算机视觉(95)、最优化(93)</li>
-          </ul>
+          <ul><li>GPA 4.12/5.0，专业第2/65</li><li>核心课程：机器学习(98)、深度学习(96)、计算机视觉(95)、最优化(93)</li></ul>
         </div>
         <div class="pub">
           <h3>研究投稿</h3>
-          <ul>
-            <li>AAAI'26（审稿中）×2：<span class="mono"></span>、<span class="mono"></span></li>
-            <li>KDD'26（审稿中）：<span class="mono"></span></li>
-          </ul>
+          <ul><li>AAAI'26（审稿中）×2</li><li>KDD'26（审稿中）</li></ul>
         </div>
         <div class="pub">
           <h3>竞赛与荣誉</h3>
-          <ul>
-            <li>交科赛 全国一等奖（2024）</li>
-            <li>智能汽车竞赛 全国二等奖（2024）</li>
-            <li>国家奖学金（2023-2024）</li>
-          </ul>
+          <ul><li>交科赛 全国一等奖（2024）</li><li>智能汽车竞赛 全国二等奖（2024）</li><li>国家奖学金（2023-2024）</li></ul>
         </div>
       </div>
     </section>
@@ -168,10 +148,8 @@
       <div class="grid cols-3">
         <div>
           <h3>教育背景</h3>
-          <ul>
-            <li>学士 · 人工智能 · 重庆交通大学（2022–2026）</li>
-          </ul>
-                     <div class="muted">政治面貌：共青团员</div>
+          <ul><li>学士 · 人工智能 · 重庆交通大学（2022–2026）</li></ul>
+          <div class="muted">政治面貌：共青团员</div>
         </div>
         <div>
           <h3>经历（近两年）</h3>
@@ -184,12 +162,8 @@
         <div>
           <h3>技能栈</h3>
           <div class="kvs">
-            <span class="tag">Python / PyTorch</span>
-            <span class="tag">C/C++</span>
-            <span class="tag">OpenCV</span>
-            <span class="tag">NumPy / Matplotlib</span>
-            <span class="tag">Transformer / Diffusion</span>
-            <span class="tag">ROS / SLAM</span>
+            <span class="tag">Python / PyTorch</span><span class="tag">C/C++</span><span class="tag">OpenCV</span>
+            <span class="tag">NumPy / Matplotlib</span><span class="tag">Transformer / Diffusion</span><span class="tag">ROS / SLAM</span>
           </div>
         </div>
       </div>
@@ -199,33 +173,17 @@
     <section id="research" class="section card p24">
       <h2>研究方向</h2>
       <div class="grid cols-2">
-        <div>
-          <h3>具身智能</h3>
-          <p class="muted">将因果建模与世界模型结合，提升稀疏奖励下的探索效率与可解释性。</p>
-        </div>
-        <div>
-          <h3>视觉语言模型</h3>
-          <p class="muted">跨模态表征与时空对齐，用于导航、问答、策略学习与长期记忆。</p>
-        </div>
+        <div><h3>具身智能</h3><p class="muted">将因果建模与世界模型结合，提升稀疏奖励下的探索效率与可解释性。</p></div>
+        <div><h3>视觉语言模型</h3><p class="muted">跨模态表征与时空对齐，用于导航、问答、策略学习与长期记忆。</p></div>
       </div>
     </section>
 
-    <!-- 论文 Publications -->
+    <!-- 论文 -->
     <section id="pubs" class="section card p24">
       <h2>论文（在投/预印本）</h2>
-      <div class="pub">
-        <b>HiVA: Self-organized Hierarchical Variable Agent via Goal-driven Semantic-Topological Evolution</b><br/>
-        <span class="muted">对话、代码、长上下文问答、数学推理等任务提升 5–10%，具备高适应性与资源效率。AAAI 2026（审稿中）。</span>
-      </div>
-      <div class="pub">
-        <b>Beyond Pixels: Introducing Geometric-Semantic World Priors for Video-based Embodied Models via Spatio-temporal Alignment</b><br/>
-        <span class="muted">二维语义 × 三维几何对齐与隐式认知地图，VLN-CE 等基准上准确率/探索效率 +3–6%。AAAI 2026（审稿中）。</span>
-      </div>
-      <div class="pub">
-        <b>Causal Attribution in Disentangled World Models for Efficient Exploration via an Agency Bonus</b><br/>
-        <span class="muted">结构因果建模分离可控/不可控动态，提出主体性奖励；在 Atari100k 达到更优样本效率与规划精度。KDD 2026（审稿中）。</span>
-      </div>
-      <p class="muted" style="margin-top:8px">更多工作将陆续更新。</p>
+      <div class="pub"><b>HiVA: Self-organized Hierarchical Variable Agent via Goal-driven Semantic-Topological Evolution</b><br/><span class="muted">AAAI 2026（审稿中）。</span></div>
+      <div class="pub"><b>Beyond Pixels: Introducing Geometric-Semantic World Priors for Video-based Embodied Models via Spatio-temporal Alignment</b><br/><span class="muted">AAAI 2026（审稿中）。</span></div>
+      <div class="pub"><b>Causal Attribution in Disentangled World Models for Efficient Exploration via an Agency Bonus</b><br/><span class="muted">KDD 2026（审稿中）。</span></div>
     </section>
 
     <!-- 项目 -->
@@ -234,15 +192,15 @@
       <div class="grid cols-3">
         <div class="p24" style="border:1px solid rgba(5,150,105,.2);border-radius:14px;background:rgba(5,150,105,.02)">
           <h3>溺水监测报警系统（国家级大创）</h3>
-          <p class="muted">负责人。基于 YOLO 的小目标检测、模型量化与边缘部署（NVIDIA Orin Nano）。100 张样本测试漏检 0，已结题。</p>
+          <p class="muted">负责人。YOLO 小目标检测、量化与边缘部署（NVIDIA Orin Nano）。100 张样本测试漏检 0，已结题。</p>
         </div>
         <div class="p24" style="border:1px solid rgba(5,150,105,.2);border-radius:14px;background:rgba(5,150,105,.02)">
           <h3>桥梁裂缝三维演化（NSFC 青年）</h3>
-          <p class="muted">像素分割 + 物理光学先验 + 长序列模型，缓解分布不均衡并提升复杂场景鲁棒性；负责主要算法与代码实现。</p>
+          <p class="muted">像素分割 + 物理光学先验 + 长序列模型；负责主要算法与实现。</p>
         </div>
         <div class="p24" style="border:1px solid rgba(5,150,105,.2);border-radius:14px;background:rgba(5,150,105,.02)">
           <h3>室内外三维重建（鹏程实验室）</h3>
-          <p class="muted">Robosense-32 点云 + A-LOAM，ROS Noetic 实时里程计与建图；完成办公室重建并交付可复现实验代码。</p>
+          <p class="muted">Robosense-32 + A-LOAM，ROS Noetic 实时里程计与建图；完成办公室重建交付。</p>
         </div>
       </div>
     </section>
@@ -276,27 +234,27 @@
       </ul>
     </section>
 
-
+    <!-- 访客地图（ClustrMaps） -->
+    <section id="clustrmaps" class="section card p24">
+      <h2>访客地图</h2>
+      <div id="clustrmaps-widget" style="min-height:360px">
+        <script type="text/javascript" id="clustrmaps"
+          src="https://clustrmaps.com/map_v2.js?d=QJcyYwrezNzoKX9jznpVhrAYKghpKUT0d02NxXE03gA&cl=ffffff&w=a">
+        </script>
+      </div>
+      <div class="muted" style="font-size:13px;margin-top:8px">由 ClustrMaps 提供统计，仅展示国家/地区级别数据。</div>
+    </section>
 
     <!-- 联系方式 -->
     <section id="contact" class="section card p24">
       <h2>联系</h2>
-      <div style="display:flex;flex-wrap:wrap;gap:var(--spacing-sm);align-items:center;margin-bottom:var(--spacing-sm)">
+      <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:12px">
         <span>📧 <a href="mailto:kirinlv03@gmail.com">kirinlv03@gmail.com</a></span>
         <span>🏫 重庆交通大学</span>
         <span>📄 <a href="/cv.pdf" target="_blank" rel="noopener">下载简历（PDF）</a></span>
       </div>
       <p class="muted">欢迎对具身智能、视频语言模型与机器人感知相关的实习/联合培养/科研合作联系我。</p>
     </section>
-
-    <!-- 访客地图（ClustrMaps） -->
-    <section id="clustrmaps" class="section card p24">
-      <h2>访客地图</h2>
-      <div id="clustrmaps-widget">
-        <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=QJcyYwrezNzoKX9jZnpVhrAYKghpUT0d02NxXE03gA&cl=ffffff&w=a"></script>
-      </div>
-    </section>
-
   </main>
 
   <footer class="container footer">
@@ -306,17 +264,19 @@
   <script>
     // 平滑滚动 & 页脚年份
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href')); if(t){e.preventDefault(); t.scrollIntoView({behavior:'smooth'});} });
+      a.addEventListener('click',e=>{
+        const t=document.querySelector(a.getAttribute('href'));
+        if(t){e.preventDefault(); t.scrollIntoView({behavior:'smooth'});}
+      });
     });
     document.getElementById('y').textContent = new Date().getFullYear();
     document.getElementById('lastmod').textContent = new Date().toISOString().slice(0,10);
-    
+
     // 移动端菜单切换
-    function toggleMenu() {
-      const links = document.querySelector('.links');
-      const mobileMenu = document.querySelector('.mobile-menu');
-      links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
-      mobileMenu.classList.toggle('active');
+    function toggleMenu(){
+      const links=document.querySelector('.links');
+      const display=window.getComputedStyle(links).display;
+      links.style.display = display==='none' ? 'flex' : 'none';
     }
   </script>
 </body>
