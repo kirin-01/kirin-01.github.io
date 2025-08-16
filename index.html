@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>你的名字 | 个人主页</title>
+  <meta name="description" content="学者 / 工程师个人主页，包含简介、研究方向、论文、项目、教学与联系信息。" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🎓</text></svg>">
+  <!-- 结构化数据：便于学术搜索展示 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "你的名字",
+    "jobTitle": "你的职称",
+    "affiliation": {"@type":"Organization","name":"你的单位"},
+    "email": "mailto:you@example.com",
+    "url": "https://your-domain.com",
+    "sameAs": [
+      "https://scholar.google.com/citations?user=xxxxx",
+      "https://orcid.org/0000-0000-0000-0000",
+      "https://github.com/yourid",
+      "https://www.semanticscholar.org/author/xxxx"
+    ]
+  }
+  </script>
+  <style>
+    :root{
+      --bg:#0b0c10; --card:#111217; --muted:#9aa4b2; --text:#e5e7eb; --brand:#60a5fa; --accent:#a78bfa;
+      --max: 1080px; --radius: 18px; --shadow: 0 8px 30px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:linear-gradient(180deg,#0b0c10 0%, #0f1320 100%);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
+    a{color:var(--brand);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:var(--max);margin:0 auto;padding:24px}
+    header{position:sticky;top:0;backdrop-filter:saturate(180%) blur(10px);background:rgba(11,12,16,.6);z-index:50;border-bottom:1px solid rgba(255,255,255,.06)}
+    nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    nav .links{display:flex;gap:14px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.1);padding:10px 14px;border-radius:999px;background:rgba(255,255,255,.04)}
+    .btn:hover{background:rgba(255,255,255,.08)}
+    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;padding:56px 0}
+    .card{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .p24{padding:24px}
+    .muted{color:var(--muted)}
+    h1{font-size:40px;line-height:1.2;margin:0 0 10px}
+    h2{font-size:26px;margin:0 0 12px}
+    h3{font-size:20px;margin:18px 0 8px}
+    ul{margin:8px 0 0 18px}
+    .tag{display:inline-flex;align-items:center;padding:6px 10px;border-radius:999px;background:rgba(96,165,250,.12);border:1px solid rgba(96,165,250,.35);margin:6px 6px 0 0;font-size:13px}
+    .grid{display:grid;gap:18px}
+    .grid.cols-2{grid-template-columns:repeat(2,1fr)}
+    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+    .pub{padding:16px;border-radius:14px;border:1px dashed rgba(255,255,255,.08)}
+    .kvs{display:flex;flex-wrap:wrap;gap:10px}
+    .footer{padding:32px 0;color:var(--muted);font-size:14px}
+    .avatar{width:120px;height:120px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,.2);box-shadow:var(--shadow)}
+    .pill{display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border-radius:999px;background:rgba(167,139,250,.12);border:1px solid rgba(167,139,250,.35);font-size:14px}
+    .section{margin:24px 0}
+    .nowrap{white-space:nowrap}
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr}
+      nav .links{display:none}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div style="display:flex;align-items:center;gap:12px">
+          <span class="pill">🎓 你的名字</span>
+          <span class="muted nowrap">你的职称 · 你的单位</span>
+        </div>
+        <div class="links">
+          <a class="btn" href="#about">关于我</a>
+          <a class="btn" href="#research">研究方向</a>
+          <a class="btn" href="#pubs">论文</a>
+          <a class="btn" href="#projects">项目</a>
+          <a class="btn" href="#teaching">教学</a>
+          <a class="btn" href="#news">动态</a>
+          <a class="btn" href="#contact">联系</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="card p24">
+        <h1>你好，我是 <span style="color:var(--brand)">你的名字</span>。</h1>
+        <p class="muted">（一句话定位）专注于 <b>研究方向关键词A</b>、<b>关键词B</b> 与 <b>关键词C</b>。目前在 <b>你的单位</b> 从事研究 / 教学工作。</p>
+        <div class="kvs" style="margin-top:10px">
+          <a class="tag" href="mailto:you@example.com">📧 you@example.com</a>
+          <a class="tag" href="https://scholar.google.com/citations?user=xxxx" target="_blank" rel="noopener">🔎 Google Scholar</a>
+          <a class="tag" href="https://orcid.org/0000-0000-0000-0000" target="_blank" rel="noopener">🧬 ORCID</a>
+          <a class="tag" href="https://github.com/yourid" target="_blank" rel="noopener">💻 GitHub</a>
+          <a class="tag" href="#clustrmaps">🌍 访客地图</a>
+        </div>
+      </div>
+      <div class="card p24" style="display:flex;flex-direction:column;gap:14px;align-items:center;justify-content:center">
+        <img class="avatar" src="https://avatars.githubusercontent.com/u/583231?v=4" alt="你的头像占位" />
+        <div class="muted" style="text-align:center">替换为你的头像（正方形更佳）</div>
+      </div>
+    </section>
+
+    <!-- 关于我 -->
+    <section id="about" class="section card p24">
+      <h2>关于我</h2>
+      <p>在这里写一段 3~5 句话的个人简介：研究兴趣、当前课题、代表性成果或你在寻找的合作方向。</p>
+      <div class="grid cols-3">
+        <div>
+          <h3>教育背景</h3>
+          <ul>
+            <li>Ph.D. 某专业，某大学（20XX）</li>
+            <li>B.S. 某专业，某大学（20XX）</li>
+          </ul>
+        </div>
+        <div>
+          <h3>工作经历</h3>
+          <ul>
+            <li>某单位，讲师/副教授/研究员（20XX–至今）</li>
+            <li>某研究所，研究助理（20XX–20XX）</li>
+          </ul>
+        </div>
+        <div>
+          <h3>研究关键词</h3>
+          <div class="kvs">
+            <span class="tag">关键词A</span>
+            <span class="tag">关键词B</span>
+            <span class="tag">关键词C</span>
+            <span class="tag">关键词D</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 研究方向 -->
+    <section id="research" class="section card p24">
+      <h2>研究方向</h2>
+      <div class="grid cols-2">
+        <div>
+          <h3>方向一</h3>
+          <p class="muted">一句话说明：你解决什么问题、采用什么方法、为什么重要。</p>
+        </div>
+        <div>
+          <h3>方向二</h3>
+          <p class="muted">一句话说明：可加代表性论文或项目的链接。</p>
+        </div>
+        <div>
+          <h3>方向三</h3>
+          <p class="muted">一句话说明：可加数据集/开源代码。</p>
+        </div>
+        <div>
+          <h3>方向四（可选）</h3>
+          <p class="muted">一句话说明。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 论文 Publications -->
+    <section id="pubs" class="section card p24">
+      <h2>论文</h2>
+      <p class="muted">按年份或类型分组，建议附上 PDF/DOI/代码。</p>
+      <div class="pub">
+        <b>论文标题一</b><br/>
+        作者A, 作者B, <u>你的名字</u>. <i>期刊/会议</i>, 年份. 
+        <a href="#" target="_blank" rel="noopener">PDF</a> · 
+        <a href="#" target="_blank" rel="noopener">DOI</a> · 
+        <a href="#" target="_blank" rel="noopener">Code</a>
+      </div>
+      <div class="pub">
+        <b>论文标题二</b><br/>
+        作者A, <u>你的名字</u>, 作者C. <i>期刊/会议</i>, 年份. 
+        <a href="#" target="_blank" rel="noopener">PDF</a> · 
+        <a href="#" target="_blank" rel="noopener">DOI</a> · 
+        <a href="#" target="_blank" rel="noopener">Slides</a>
+      </div>
+    </section>
+
+    <!-- 项目 -->
+    <section id="projects" class="section card p24">
+      <h2>项目</h2>
+      <div class="grid cols-3">
+        <div class="p24" style="border:1px solid rgba(255,255,255,.08);border-radius:14px">
+          <h3>项目A</h3>
+          <p class="muted">一句话介绍 + 仓库地址。</p>
+          <a class="btn" href="#" target="_blank" rel="noopener">查看</a>
+        </div>
+        <div class="p24" style="border:1px solid rgba(255,255,255,.08);border-radius:14px">
+          <h3>项目B</h3>
+          <p class="muted">一句话介绍 + Demo 地址。</p>
+          <a class="btn" href="#" target="_blank" rel="noopener">查看</a>
+        </div>
+        <div class="p24" style="border:1px solid rgba(255,255,255,.08);border-radius:14px">
+          <h3>项目C</h3>
+          <p class="muted">一句话介绍 + 相关论文。</p>
+          <a class="btn" href="#" target="_blank" rel="noopener">查看</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 教学 -->
+    <section id="teaching" class="section card p24">
+      <h2>教学</h2>
+      <ul>
+        <li><b>课程名称</b>（学期） · 链接到课程主页/大纲/作业</li>
+        <li><b>课程名称</b>（学期） · 链接到课程主页/大纲/作业</li>
+      </ul>
+    </section>
+
+    <!-- 新闻与动态 -->
+    <section id="news" class="section card p24">
+      <h2>新闻与动态</h2>
+      <ul>
+        <li>[2025-08-01] 论文《XXXX》被 XXX 录用。</li>
+        <li>[2025-07-10] 受邀在 YYY 作报告。</li>
+        <li>[2025-06-20] 获得 ZZZ 项目资助。</li>
+      </ul>
+    </section>
+
+    <!-- 联系方式 -->
+    <section id="contact" class="section card p24">
+      <h2>联系</h2>
+      <p>邮箱：<a href="mailto:you@example.com">you@example.com</a> · 办公室：XXX 楼 XXX 室 · <a href="/cv.pdf" target="_blank" rel="noopener">下载简历（PDF）</a></p>
+      <p class="muted">为防垃圾邮件，可写成 you [at] example [dot] com。</p>
+    </section>
+
+    <!-- 访客地图（ClustrMaps） -->
+    <section id="clustrmaps" class="section card p24">
+      <h2>访客地图</h2>
+      <div id="clustrmaps-widget" class="muted">（部署上线后，在此处粘贴 ClustrMaps 的嵌入脚本）</div>
+      <!-- 示例：从 ClustrMaps 后台复制到下面，替换 YOUR_ID
+      <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=YOUR_ID"></script>
+      -->
+    </section>
+
+  </main>
+
+  <footer class="container footer">
+    © <span id="y"></span> 你的名字 · 最后更新于 <span id="lastmod"></span>
+  </footer>
+
+  <script>
+    // 平滑滚动 & 页脚年份
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href')); if(t){e.preventDefault(); t.scrollIntoView({behavior:'smooth'});} });
+    });
+    document.getElementById('y').textContent = new Date().getFullYear();
+    // 若你使用构建系统可注入真实更新时间
+    document.getElementById('lastmod').textContent = new Date().toISOString().slice(0,10);
+  </script>
+</body>
+</html>
